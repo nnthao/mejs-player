@@ -8,6 +8,20 @@
       <link rel='stylesheet prefetch' href='https://mymediaelements.github.io/mejs-player/build/mediaelementplayer.css'>
       <link rel='stylesheet prefetch' href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'>
       <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      	<style>
+	#map {
+  height: 100%;
+}
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+	</style>
       <style>
          ul {color:#fff;}
          .text{color: #fff!important;
@@ -209,5 +223,24 @@
          audio.play(); //call this to play the song right away
          };
       </script>
+      <div>
+      <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaOulQACiJzBfqumbsqg_-vKha8fCnL-s&callback=initMap&v=weekly&channel=2"
+      async
+    ></script>
+      </div>
+      <script>
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+</script>
    </body>
 </html>
